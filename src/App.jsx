@@ -13,7 +13,7 @@ import MaintenanceGuidePage from './pages/MaintenanceGuidePage.jsx'
 import WhatsAppButton from './Components/WhatsAppButton/WhatsAppButton.jsx'
 import ScrollToTopButton from './Components/ScrollToTopButton/ScrollToTopButton.jsx'
 import NewRegisterPage from './pages/NewRegisterPage.jsx'
-import Testing from './Components/Testing/testing.jsx'
+import Testing from './Components/Testing/Testing.jsx'
 
 
 
