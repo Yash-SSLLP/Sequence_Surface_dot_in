@@ -4,6 +4,18 @@ import { product } from '../../assets/assets.js'
 import { ImWhatsapp } from "react-icons/im";
 import { IoCall } from "react-icons/io5";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { BsCart3 } from "react-icons/bs";
+import { IoPerson } from "react-icons/io5";
+import { MdOutlineStorefront } from "react-icons/md";
+import { IoLogIn } from "react-icons/io5";
+import { FaSignInAlt } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
+import { FaPersonChalkboard } from "react-icons/fa6";
+import { BiSolidContact } from "react-icons/bi";
+import { FaBlog } from "react-icons/fa6";
+import { callNumber, Message, WhatsappNumber } from '../../assets/assets.js';
+
 
 
 
@@ -13,7 +25,6 @@ function NavBar() {
 
     product.forEach((item) => {
         const parentId = item.parentCategory.id;
-
         if (!groupedCategories[parentId]) {
             groupedCategories[parentId] = {
                 name: item.parentCategory.name,
@@ -37,7 +48,7 @@ function NavBar() {
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     {/* Logo */}
-                    <Link to={'/home'}>
+                    <Link to={'/'}>
                         <img
                             className='img-logo'
                             src='https://sequencesurface.com/images/logo.png'
@@ -57,18 +68,17 @@ function NavBar() {
                     {/* Desktop Menu */}
                     <div className="collapse navbar-collapse desktop-menu">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 navbar-item-test1">
-
                             <li className="nav-item">
                                 <Link className="nav-link" style={{ color: "white" }} to="/home">
                                     Home
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" style={{ color: "white" }} to="/about_us">
+                                <Link className="nav-link" style={{ color: "white" }} to="/about-us">
                                     About Us
                                 </Link>
                             </li><li className="nav-item">
-                                <Link className="nav-link" style={{ color: "white" }} to="/contact_us">
+                                <Link className="nav-link" style={{ color: "white" }} to="/contact-us">
                                     Contact Us
                                 </Link>
                             </li>
@@ -87,9 +97,7 @@ function NavBar() {
                                     Visit Store
                                 </Link>
                             </li>
-
                         </ul>
-
                         {/* Search Bar */}
                         <form className="d-flex">
                             <input className="navbar-search-input me-2" type="search" placeholder="Search" />
@@ -97,14 +105,19 @@ function NavBar() {
                                 Search
                             </button>
                         </form>
-                        <a href="/cart"><button className="login-desktop navbar-btn btn btn-outline-success">Cart</button></a>
-                        <a href="/login"><button className="login-desktop navbar-btn btn btn-outline-success">Login</button></a>
-
+                        <div className='div-desktop-cart' style={{ display: "flex" }}>
+                            <Link to={'/cart'} className='img-cart-icon'>
+                                <BsCart3 />
+                            </Link>
+                            <div className='cart-count-desktop'>
+                                20
+                            </div>
+                        </div>
+                        {/* <a href="/login"><button className="login-desktop navbar-btn btn btn-outline-success">Login</button></a> */}
+                        <Link className='signin-signup-desktop' to={'signup'}>SignUp / SignIn</Link>
                     </div>
-
                 </div>
             </nav>
-
             {/* MOBILE OFFCANVAS MENU */}
             <div
                 className="offcanvas offcanvas-start"
@@ -127,55 +140,69 @@ function NavBar() {
                         <div className='colasped-side-bar'>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/home">
-                                    Home
+                                    <div className='row'>
+                                        <div className='col-6 text-end offcanvas-icons'><FaHome /></div>
+                                        <div className='col-4 text-start offcanvas-home'><span> Home</span></div>
+                                    </div>
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/about_us">
-                                    About Us
+                                <Link className="nav-link" to="/about-us">
+                                    <div className='row'>
+                                        <div className='col-6 text-end offcanvas-icons'><FaPersonChalkboard /></div>
+                                        <div className='col-4 text-start offcanvas-about-us'><span> About Us</span></div>
+                                    </div>
                                 </Link>
                             </li><li className="nav-item">
-                                <Link className="nav-link" to="/contact_us">
-                                    Contact Us
+                                <Link className="nav-link" to="/contact-us">
+                                    <div className='row'>
+                                        <div className='col-6 text-end offcanvas-icons'><BiSolidContact /></div>
+                                        <div className='col-4 text-start offcanvas-contact-us'><span> Contact Us</span></div>
+                                    </div>
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/blog">
-                                    Blog
+                                    <div className='row'>
+                                        <div className='col-6 text-end offcanvas-icons'><FaBlog /></div>
+                                        <div className='col-4 text-start'><span> Blog</span></div>
+                                    </div>
                                 </Link>
                             </li>
                             <div className='login-mobile'>
                                 <div className='row'>
                                     <div className='col-6'><li className="nav-item">
                                         <Link className="nav-link" to="/login">
-                                            Login
+                                            <IoLogIn /><span> Login</span>
                                         </Link>
                                     </li></div>
                                     <div className='col-6'><li className="nav-item">
                                         <Link className="nav-link" to="/signup">
-                                            Signup
+                                            <FaSignInAlt /><span> Signup</span>
                                         </Link>
                                     </li></div>
                                 </div>
                             </div>
                             <li className="nav-item mt-3">
                                 <Link className="visit-store-btn-navbar nav-link navbar-btn visit-btn" to="/cart">
-                                    My Cart
+                                    <BsCart3 /> <span>Cart</span>
                                 </Link>
                                 <Link className="visit-store-btn-navbar nav-link navbar-btn visit-btn" to="/profile">
-                                    My Profile
+                                    <IoPerson /> <span>Profile</span>
                                 </Link>
                                 <Link className="visit-store-btn-navbar nav-link navbar-btn visit-btn" to="/store">
-                                    Visit Store
+                                    <MdOutlineStorefront /> <span>Visit Store</span>
                                 </Link>
                             </li>
                         </div>
                     </ul>
                     {/* Search */}
                     <form className="d-flex mt-3">
-                        <input className="form-control me-2" type="search" placeholder="Search" />
+                        <input className="offcanvas-search-field form-control me-2" type="search" placeholder="Search" />
                         <button className="btn btn-outline-success">
-                            Search
+                            <div className='offcanvas-search-icon'>
+                                {/* <BsSearch /> */}
+                            </div> <span>Search</span>
                         </button>
                     </form>
                 </div>
@@ -194,9 +221,7 @@ function NavBar() {
                                                     className="nav-link dropdown-toggle wrap-text box-size"
                                                     style={{ color: "black" }}
                                                     role="button"
-
                                                 >
-
                                                     {category.name}
                                                 </Link>
                                             </div>
@@ -221,7 +246,7 @@ function NavBar() {
                 </div>
                 <div className='row p-4'>
                     <div className='col-6 container'>
-                        <button className="btn-contact-details-offcanvas">
+                        <button className="btn-contact-details-offcanvas" onClick={()=>window.location.href=`tel:${callNumber}`}>
                             <div className='whatsapp-logo-img'>
                                 <IoCall />
                             </div>
@@ -231,7 +256,7 @@ function NavBar() {
 
                     </div>
                     <div className='col-6 container'>
-                        <button className="btn-contact-details-offcanvas">
+                        <button className="btn-contact-details-offcanvas" onClick={()=>window.open(`https://wa.me/${WhatsappNumber}?text=${Message}`)}>
                             <div className='whatsapp-logo-img'>
                                 <ImWhatsapp />
                             </div>
@@ -255,8 +280,6 @@ function NavBar() {
                             >
                                 {category.name} <img className='dropdown-img-logo' src='https://img.icons8.com/?size=100&id=5jRysPx2JtDa&format=png&color=000000'></img>
                             </a>
-
-
                             <ul className="dropdown-menu">
                                 {
                                     category.children.map((child, i) => (

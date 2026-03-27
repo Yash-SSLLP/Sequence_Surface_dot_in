@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: black !important;
+    background-color: rgb(0, 0, 0) !important;
     padding: 25px 0px;
     z-index: 1000;
 }
@@ -26,6 +26,7 @@ a:hover {
     color: black;
     background-color: #ebc76c;
     border: none;
+    /* width: 100px; */
 }
 
 .btn-outline-success:hover {
@@ -45,6 +46,7 @@ a:hover {
     height: 60px;
     list-style-type: none;
     z-index: 1000;
+    /* margin-bottom: 100px; */
 }
 
 /* Dropdown */
@@ -340,4 +342,74 @@ a:hover {
 }
 .login-desktop{
     margin: 5px;
+}
+
+.img-cart-icon{
+    font-size: 20px;
+    color: #ebc76c;
+    padding: 7px 12px 7px 12px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.img-cart-icon:hover{
+    border-color: #ebc76c;
+    color: black !important;
+    transition: 0.3s;
+    background-color: #ebc76c;
+}
+
+.signin-signup-desktop{
+    color: white;
+    text-decoration: none;
+}
+
+.cart-count-desktop{
+    height: 15px;
+    /* width: 30px; */
+    /* display: flex; */
+    background-color: #ebc76c;
+    padding: 15px 12px 15px 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    border-radius: 50px;
+    position: relative;
+    margin-left: -30px;
+}
+.img-cart-icon:hover + .cart-count-desktop{
+    transition: 0.3s;
+    color: white;
+    background-color: #c59826;
+}
+.cart-count-desktop:hover{
+    transition: 0.3s;
+    color: white;
+}
+
+.div-desktop-cart:hover{
+    border-color: #ebc76c;
+    transition: 0.3s;
+}
+.offcanvas-search-icon{
+    font-size: 10px;
+}
+/* .offcanvas-search-field{
+    width: 100px;
+} */
+
+
+.offcanvas-icons{
+    margin-left: -30px;
+    /* padding-left: -200px; */
+}
+.offcanvas-home{
+    margin-left: -5px;
+}
+.offcanvas-about-us{
+    margin-left: -12px;
+}
+.offcanvas-contact-us{
+    margin-left: -15px;
 }
